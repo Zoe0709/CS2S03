@@ -1,0 +1,291 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf500
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 Menlo-Italic;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red185\green122\blue229;\red13\green14\blue20;
+\red254\green193\blue89;\red121\green213\blue255;\red242\green119\blue89;\red112\green150\blue255;\red234\green255\blue220;
+\red234\green255\blue255;\red94\green102\blue165;\red184\green230\blue123;}
+{\*\expandedcolortbl;;\csgray\c0;\csgenericrgb\c72549\c47843\c89804;\csgenericrgb\c5098\c5490\c7843;
+\csgenericrgb\c99608\c75686\c34902;\csgenericrgb\c47451\c83529\c100000;\csgenericrgb\c94902\c46667\c34902;\csgenericrgb\c43922\c58824\c100000;\csgenericrgb\c91765\c100000\c86275;
+\csgenericrgb\c91765\c100000\c100000;\csgenericrgb\c36863\c40000\c64706;\csgenericrgb\c72157\c90196\c48235;}
+\margl1440\margr1440\vieww10800\viewh11200\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl-380\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 MODEL Camry 6.5 58\
+MODEL Civic 7.5 52 \
+CAR Camry 1111\
+CAR Camry 2222 \
+CAR Civic 3333\
+CAR Civic 4444 \
+TRIP 1111 350 \
+TRIP 2222 350 \
+TRIP 3333 350 \
+TRIP 4444 350 \
+TRIP 1111 350 \
+TRIP 2222 350 \
+TRIP 3333 350 \
+TRIP 4444 350 \
+FINISH\
+\
+MODEL X5 10 68\
+CAR X5 787878\
+TRIP 787878 500\
+TRIP 787878 500\
+TRIP 787878 10\
+REFILL 787878\
+TRIP 787878 500\
+FINISH\
+\
+\
+MODEL Camry 6.5 58\
+MODEL Civic 7.5 52\
+CAR Camry 1111\
+CAR Civic 4444\
+TRIP 1111 50\
+TRIP 4444 50\
+TRIP 1111 350\
+TRIP 4444 350\
+TRIP 1111 350\
+TRIP 4444 350\
+LONGTRIPS 1111 300\
+LONGTRIPS 4444 300\
+FINISH\
+\
+MODEL Camry 6.5 58\
+CAR Camry 1111\
+TRIP 1111 300\
+LONGTRIPS 1111 500\
+FINISH\
+\
+\
+\
+MODEL Civic 7.5 52 \
+MODEL Camry 6.5 58\
+CAR Civic 3333\
+CAR Civic 4444 \
+CAR Camry 1111\
+CAR Camry 2222 \
+TRIP 3333 350 \
+TRIP 4444 350 \
+TRIP 1111 350 \
+TRIP 2222 350 \
+TRIP 1111 350 \
+TRIP 2222 350 \
+TRIP 3333 350 \
+TRIP 4444 350 \
+FINISH\
+\
+\
+car1 plate 1111\
+dis car1.getDistance = [50,50,350,350]\
+\
+longtrip:\
+for (double distance: dis) \{\
+ if (distance > input ):\
+  counter ++\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\i\fs24 \cf3 \cb4 import 
+\f2\i0 \cf5 java.util.ArrayList\cf6 ;\
+
+\f1\i \cf3 import 
+\f2\i0 \cf5 java.util.Scanner\cf6 ;\
+
+\f1\i \cf3 import 
+\f2\i0 \cf5 java.util.Stack\cf6 ;\
+\
+
+\f1\i \cf7 public \cf3 class 
+\f2\i0 \cf5 ningh4_assignment3 \cf6 \{\
+\
+    
+\f1\i \cf7 public \cf3 static void 
+\f2\i0 \cf8 main\cf6 (\cf5 String\cf6 [] \cf7 args\cf6 ) \{\
+\
+        \cf5 Scanner \cf9 scanner \cf6 = 
+\f1\i \cf3 new 
+\f2\i0 \cf8 Scanner\cf6 (\cf5 System\cf6 .
+\f1\i \cf10 in
+\f2\i0 \cf6 );\
+        
+\f1\i \cf11 //Take the input as a string\
+        
+\f2\i0 \cf5 String \cf9 inputs\cf6 ;\
+        \cf9 inputs \cf6 = \cf9 scanner\cf6 .\cf8 nextLine\cf6 ();\
+        
+\f1\i \cf11 //Call doCalculation function to calculate\
+        \cf3 int 
+\f2\i0 \cf9 result \cf6 = 
+\f1\i \cf8 doCalculation
+\f2\i0 \cf6 (\cf9 inputs\cf6 );\
+        
+\f1\i \cf11 //Print the result when finish calculating\
+        
+\f2\i0 \cf5 System\cf6 .
+\f1\i \cf10 out
+\f2\i0 \cf6 .\cf8 println\cf6 (\cf9 result\cf6 );\
+\
+    \}\
+\
+    
+\f1\i \cf7 private \cf3 static int 
+\f2\i0 \cf8 doCalculation\cf6 (\cf5 String \cf7 inputs\cf6 ) \{\
+        
+\f1\i \cf11 //Add brackets for the whole input to make sure every operator is executed\
+        
+\f2\i0 \cf7 inputs \cf6 = \cf12 '(' \cf6 + \cf7 inputs \cf6 + \cf12 ')'\cf6 ;\
+\
+        
+\f1\i \cf11 //Use stack algorithm to do brackets matching\
+        
+\f2\i0 \cf5 Stack\cf6 <\cf5 String\cf6 > \cf9 stack \cf6 = 
+\f1\i \cf3 new 
+\f2\i0 \cf8 Stack\cf6 <>();\
+        
+\f1\i \cf3 char
+\f2\i0 \cf6 [] \cf9 theArray \cf6 = \cf7 inputs\cf6 .\cf8 toCharArray\cf6 ();\
+\
+        \cf5 StringBuilder \cf9 sub_inputs \cf6 = 
+\f1\i \cf3 new 
+\f2\i0 \cf8 StringBuilder\cf6 ();\
+\
+        
+\f1\i \cf3 for 
+\f2\i0 \cf6 (
+\f1\i \cf3 int 
+\f2\i0 \cf9 i \cf6 = \cf7 0\cf6 ; \cf9 i \cf6 < \cf9 theArray\cf6 .\cf10 length\cf6 ; \cf9 i\cf6 ++) \{\
+            
+\f1\i \cf3 if 
+\f2\i0 \cf6 (\cf9 theArray\cf6 [\cf9 i\cf6 ] >= \cf12 '0' \cf6 && \cf9 theArray\cf6 [\cf9 i\cf6 ] <= \cf12 '9'\cf6 ) \{\
+                \cf9 sub_inputs\cf6 .\cf8 append\cf6 (\cf9 theArray\cf6 [\cf9 i\cf6 ]);\
+\
+            \} 
+\f1\i \cf3 else 
+\f2\i0 \cf6 \{\
+                
+\f1\i \cf3 if 
+\f2\i0 \cf6 (\cf9 sub_inputs\cf6 .\cf8 length\cf6 () > \cf7 0\cf6 ) \{\
+                    \cf9 stack\cf6 .\cf8 push\cf6 (\cf9 sub_inputs\cf6 .\cf8 toString\cf6 ());\
+                    \cf9 sub_inputs \cf6 = 
+\f1\i \cf3 new 
+\f2\i0 \cf8 StringBuilder\cf6 ();\
+                \}\
+                
+\f1\i \cf11 //If the current char is a opening bracket, push it into stack\
+                \cf3 if 
+\f2\i0 \cf6 (\cf9 theArray\cf6 [\cf9 i\cf6 ] != \cf12 ')'\cf6 ) \{\
+                    \cf9 stack\cf6 .\cf8 push\cf6 (
+\f1\i \cf3 new 
+\f2\i0 \cf8 String\cf6 (
+\f1\i \cf3 new char
+\f2\i0 \cf6 []\{\cf9 theArray\cf6 [\cf9 i\cf6 ]\}));\
+\
+                
+\f1\i \cf11 //If the current char is a closing bracket, pop from stack and calculate\
+                
+\f2\i0 \cf6 \} 
+\f1\i \cf3 else 
+\f2\i0 \cf6 \{\
+                    \cf5 ArrayList\cf6 <\cf5 String\cf6 > \cf9 calPart \cf6 = 
+\f1\i \cf3 new 
+\f2\i0 \cf8 ArrayList\cf6 <>();\
+                    
+\f1\i \cf3 while 
+\f2\i0 \cf6 (! \cf9 stack\cf6 .\cf8 isEmpty\cf6 ()) \{\
+                        \cf5 String \cf9 u \cf6 = \cf9 stack\cf6 .\cf8 pop\cf6 ();\
+                        
+\f1\i \cf3 if 
+\f2\i0 \cf6 (\cf9 u\cf6 .\cf8 equals\cf6 (\cf12 "("\cf6 )) \{\
+                            
+\f1\i \cf3 break
+\f2\i0 \cf6 ;\
+                        \} 
+\f1\i \cf3 else 
+\f2\i0 \cf6 \{\
+                            \cf9 calPart\cf6 .\cf8 add\cf6 (\cf7 0\cf6 , \cf9 u\cf6 );\
+                        \}\
+                    \}\
+                    
+\f1\i \cf11 //Calculation\
+                    \cf3 int 
+\f2\i0 \cf9 t_result \cf6 = \cf7 0\cf6 ;\
+                    
+\f1\i \cf11 //If there is only one integer in bracket, the result is this integer itself\
+                    \cf3 if 
+\f2\i0 \cf6 (\cf9 calPart\cf6 .\cf8 size\cf6 () == \cf7 1\cf6 ) \{\
+                        \cf9 t_result \cf6 = \cf5 Integer\cf6 .
+\f1\i \cf8 parseInt
+\f2\i0 \cf6 (\cf9 calPart\cf6 .\cf8 get\cf6 (\cf7 0\cf6 ));\
+                    \} 
+\f1\i \cf3 else 
+\f2\i0 \cf6 \{\
+                        
+\f1\i \cf3 for 
+\f2\i0 \cf6 (
+\f1\i \cf3 int 
+\f2\i0 \cf9 j \cf6 = (\cf9 calPart\cf6 .\cf8 size\cf6 () - \cf7 1\cf6 ); \cf9 j \cf6 > \cf7 0\cf6 ; \cf9 j \cf6 = \cf9 j \cf6 - \cf7 2\cf6 ) \{\
+                            
+\f1\i \cf11 //If the operator is @, take the minimum of two integers\
+                            \cf3 if 
+\f2\i0 \cf6 (\cf9 calPart\cf6 .\cf8 get\cf6 (\cf9 j \cf6 - \cf7 1\cf6 ).\cf8 equals\cf6 (\cf12 "@"\cf6 )) \{\
+                                \cf9 t_result \cf6 = \cf5 Math\cf6 .
+\f1\i \cf8 min
+\f2\i0 \cf6 (\cf5 Integer\cf6 .
+\f1\i \cf8 parseInt
+\f2\i0 \cf6 (\cf9 calPart\cf6 .\cf8 get\cf6 (\cf9 j\cf6 -\cf7 2\cf6 )), \cf5 Integer\cf6 .
+\f1\i \cf8 parseInt
+\f2\i0 \cf6 (\cf9 calPart\cf6 .\cf8 get\cf6 (\cf9 j\cf6 )));\
+                            
+\f1\i \cf11 //If the operator is &, take the maximum of two integers\
+                            
+\f2\i0 \cf6 \} 
+\f1\i \cf3 else 
+\f2\i0 \cf6 \{\
+                                \cf9 t_result \cf6 = \cf5 Math\cf6 .
+\f1\i \cf8 max
+\f2\i0 \cf6 (\cf5 Integer\cf6 .
+\f1\i \cf8 parseInt
+\f2\i0 \cf6 (\cf9 calPart\cf6 .\cf8 get\cf6 (\cf9 j\cf6 -\cf7 2\cf6 )), \cf5 Integer\cf6 .
+\f1\i \cf8 parseInt
+\f2\i0 \cf6 (\cf9 calPart\cf6 .\cf8 get\cf6 (\cf9 j\cf6 )));\
+                            \}\
+                        \}\
+                    \}\
+                    \cf9 stack\cf6 .\cf8 push\cf6 (\cf5 String\cf6 .
+\f1\i \cf8 valueOf
+\f2\i0 \cf6 (\cf9 t_result\cf6 ));\
+                \}\
+            \}\
+        \}\
+        
+\f1\i \cf11 //When stack is not empty, add top of the stack into resList and return as result\
+        
+\f2\i0 \cf5 ArrayList\cf6 <\cf5 String\cf6 > \cf9 resList \cf6 = 
+\f1\i \cf3 new 
+\f2\i0 \cf8 ArrayList\cf6 <>();\
+        
+\f1\i \cf3 while 
+\f2\i0 \cf6 (! \cf9 stack\cf6 .\cf8 isEmpty\cf6 ()) \{\
+            \cf5 String \cf9 item \cf6 = \cf9 stack\cf6 .\cf8 pop\cf6 ();\
+            \cf9 resList\cf6 .\cf8 add\cf6 (\cf7 0\cf6 , \cf9 item\cf6 );\
+        \}\
+\
+        
+\f1\i \cf3 return 
+\f2\i0 \cf5 Integer\cf6 .
+\f1\i \cf8 parseInt
+\f2\i0 \cf6 (\cf9 resList\cf6 .\cf8 get\cf6 (\cf7 0\cf6 ));\
+\
+    \}\
+\}\
+\
+\
+\
+\
+\
+\
+}
